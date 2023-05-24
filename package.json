@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@antfu/eslint-config": "^0.35.2",
-    "eslint": "^8.33.0",
-    "vitepress": "1.0.0-alpha.45"
+    "@eiog/eslint-config": "^0.0.1",
+    "@eiog/ts-config": "^0.0.3",
+    "eslint": "^8.41.0",
+    "vitepress": "1.0.0-beta.1"
   }
 }
