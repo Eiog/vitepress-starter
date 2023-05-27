@@ -1,4 +1,6 @@
 ---
+title: VitePress PWA
+titleTemplate: Zero-config PWA Plugin for VitePress
 layout: home
 hero:
   name: VitePress
@@ -16,4 +18,10 @@ hero:
       link: https://github.com/vuejs/vitepress
 ---
 
+<script setup>
+const date = __DATE__
+</script>
 
+# VitePress PWA
+
+<pre>Generated at: {{ date }}</pre>

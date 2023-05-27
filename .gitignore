@@ -11,5 +11,5 @@ node_modules
 dist
 dist-ssr
 *.local
-**/dist
-**/cache/
+cache
+dev-dist
