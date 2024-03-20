@@ -1,2 +1,1 @@
-"# vitepress-starter" 
-"# vitepress-starter" 
+# note

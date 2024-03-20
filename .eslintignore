@@ -1,0 +1,9 @@
+dist
+dist-ssr
+dist-electron
+release
+src-tauri
+.vercel
+node_modules
+cache
+dev-dist
