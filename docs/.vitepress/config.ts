@@ -1,5 +1,8 @@
+import { cwd } from 'node:process'
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+
+import { searchForWorkspaceRoot } from 'vite'
 
 export default withPwa(defineConfig({
   title: 'VitePress Starter',
@@ -42,6 +45,11 @@ export default withPwa(defineConfig({
     },
   },
   vite: {
+    server: {
+      fs: {
+        allow: [searchForWorkspaceRoot(cwd())],
+      },
+    },
     logLevel: 'info',
     define: {
       __DATE__: `'${new Date().toISOString()}'`,
