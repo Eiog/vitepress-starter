@@ -46,6 +46,8 @@ export default withPwa(defineConfig({
   },
   vite: {
     server: {
+      port: 5678,
+      host: true,
       fs: {
         allow: [searchForWorkspaceRoot(cwd())],
       },
