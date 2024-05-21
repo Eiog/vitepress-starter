@@ -1,7 +1,7 @@
 import { cwd } from 'node:process'
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
-
+import UnoCss from 'unocss/vite'
 import { searchForWorkspaceRoot } from 'vite'
 
 export default withPwa(defineConfig({
@@ -19,7 +19,7 @@ export default withPwa(defineConfig({
   ],
   themeConfig: {
     siteTitle: 'VitePress Starter',
-    logo: '/favicon.svg',
+    logo: '/vitepress-logo-mini.svg',
     socialLinks: [
       {
         icon: 'github',
@@ -45,6 +45,9 @@ export default withPwa(defineConfig({
     },
   },
   vite: {
+    plugins: [
+      UnoCss(),
+    ],
     server: {
       port: 5678,
       host: true,

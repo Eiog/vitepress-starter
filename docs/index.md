@@ -7,7 +7,7 @@ hero:
   text: Vite & Vue powered static site generator.
   tagline: Lorem ipsum...
   image:
-    src: /logo.png
+    src: /vitepress-logo-large.webp
     alt: VitePress
   actions:
     - theme: brand
@@ -22,6 +22,4 @@ hero:
 const date = __DATE__
 </script>
 
-# VitePress PWA
-
-<pre>Generated at: {{ date }}</pre>
+<pre class="text-xl">Generated at: {{ date }}</pre>
