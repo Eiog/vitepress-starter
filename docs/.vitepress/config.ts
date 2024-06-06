@@ -1,8 +1,10 @@
 import { cwd } from 'node:process'
 import { defineConfig } from 'vitepress'
+import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
 import { withPwa } from '@vite-pwa/vitepress'
-import UnoCss from 'unocss/vite'
 import { searchForWorkspaceRoot } from 'vite'
+import UnoCss from 'unocss/vite'
+import { getSidebar } from 'vitepress-plugin-auto-sidebar'
 
 export default withPwa(defineConfig({
   title: 'VitePress Starter',
@@ -35,6 +37,12 @@ export default withPwa(defineConfig({
         ],
       },
     ],
+    sidebar: getSidebar({
+      contentRoot: 'docs',
+      contentDirs: ['guide'],
+      collapsible: false,
+      collapsed: false,
+    }),
     sidebarMenuLabel: '目录',
     outline: {
       level: 'deep',
@@ -49,8 +57,6 @@ export default withPwa(defineConfig({
       UnoCss(),
     ],
     server: {
-      port: 5678,
-      host: true,
       fs: {
         allow: [searchForWorkspaceRoot(cwd())],
       },
@@ -96,6 +102,16 @@ export default withPwa(defineConfig({
     devOptions: {
       enabled: true,
       navigateFallback: '/',
+    },
+  },
+  markdown: {
+    config(md) {
+      md.use(containerPreview)
+      md.use(componentPreview)
+    },
+    theme: {
+      dark: 'dracula-soft',
+      light: 'vitesse-light',
     },
   },
 }))
