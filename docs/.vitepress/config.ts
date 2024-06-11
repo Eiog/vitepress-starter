@@ -1,10 +1,12 @@
 import { cwd } from 'node:process'
 import { defineConfig } from 'vitepress'
 import { componentPreview, containerPreview } from '@vitepress-demo-preview/plugin'
-import { withPwa } from '@vite-pwa/vitepress'
+import { withPwa } from '@vite-pwa/vitepress' // https://github.com/vite-pwa/vitepress
 import { searchForWorkspaceRoot } from 'vite'
 import UnoCss from 'unocss/vite'
 import { getSidebar } from 'vitepress-plugin-auto-sidebar'
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 
 export default withPwa(defineConfig({
   title: 'VitePress Starter',
@@ -42,7 +44,7 @@ export default withPwa(defineConfig({
       contentDirs: ['guide'],
       collapsible: false,
       collapsed: false,
-    }),
+    }), // https://github.com/JonathanSchndr/vitepress-plugin-auto-sidebar
     sidebarMenuLabel: '目录',
     outline: {
       level: 'deep',
@@ -106,12 +108,16 @@ export default withPwa(defineConfig({
   },
   markdown: {
     config(md) {
-      md.use(containerPreview)
+      md.use(containerPreview) // https://github.com/flingyp/vitepress-demo-preview
       md.use(componentPreview)
+      md.use(tabsMarkdownPlugin) // https://github.com/sapphi-red/vitepress-plugins
     },
     theme: {
       dark: 'dracula-soft',
       light: 'vitesse-light',
     },
+    codeTransformers: [
+      transformerTwoslash(), // https://shiki.tmrs.site/packages/vitepress
+    ],
   },
 }))
